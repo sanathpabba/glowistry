@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
 import { ServiceExplorer } from "@/components/service-explorer";
@@ -14,7 +15,7 @@ export default function Home() {
       <SiteHeader />
 
       <section className="reference-hero">
-        <div className="hero-placeholder" aria-hidden="true"><span className="shape-one"/><span className="shape-two"/><span className="shape-three"/></div>
+        <div className="hero-placeholder"><Image src="/images/salon/hero-campaign.png" alt="Glowistry beauty professional in an elegant private salon" fill priority sizes="100vw" /></div>
         <div className="wide-shell hero-inner">
           <div className="hero-kicker"><i />Beauty · Relaxation · Style</div>
           <h1>Feel beautiful.<br /><em>Feel like yourself.</em></h1>
@@ -32,7 +33,7 @@ export default function Home() {
       </section>
 
       <section className="about-section wide-shell" id="about">
-        <div className="about-visual image-placeholder"><span>Glowistry</span><i>Image placeholder</i></div>
+        <div className="about-visual image-placeholder"><Image src="/images/salon/studio-interior.png" alt="Warm ivory Glowistry treatment studio with champagne-gold details" fill sizes="(max-width: 620px) 100vw, 45vw" /><span>Glowistry</span></div>
         <div className="about-copy"><p className="section-kicker">About Glowistry</p><h2>More than a salon.<br /><em>Your beauty sanctuary.</em></h2><p>Step into a calm, private space where beauty, comfort and personal attention come together. Every service is delivered with care, precision and a genuine understanding of what makes you feel your best.</p><ul><li><b>01</b> Personal, one-to-one appointments</li><li><b>02</b>Hygienic and considered care</li><li><b>03</b>Modern techniques, tailored results</li></ul><a className="text-action" href="#services">Discover our services <ArrowIcon /></a></div>
       </section>
 
@@ -54,7 +55,7 @@ export default function Home() {
 
       <section className="gallery-section" id="gallery">
         <header className="center-heading wide-shell"><p className="section-kicker">Portfolio</p><h2>A glimpse of <em>Glowistry</em></h2></header>
-        <div className="gallery-grid">{["Nail artistry","Radiant skin","Hair styling","Mehendi","Bridal beauty","Salon details"].map((label,index)=><div className={`gallery-item gallery-${index+1}`} key={label}><span>{label}</span><i>Image placeholder</i></div>)}</div>
+        <div className="gallery-grid">{[{label:"Nail extensions",src:"/images/salon/nail-extensions.png"},{label:"Hydra facial",src:"/images/salon/hydra-facial.png"},{label:"Hair spa",src:"/images/salon/hair-spa.png"},{label:"Mehendi",src:"/images/salon/mehendi.png"},{label:"Saree preparation",src:"/images/salon/saree-prepleating.png"},{label:"Salon details",src:"/images/salon/studio-interior.png"}].map((item,index)=><div className={`gallery-item gallery-${index+1}`} key={item.label}><Image src={item.src} alt={item.label} fill sizes="(max-width: 620px) 50vw, 25vw"/><span>{item.label}</span></div>)}</div>
       </section>
       <Footer />
       <div className="mobile-actions"><a href={salon.phoneHref}>Call us</a><a href={salon.bookingHref}>Book now</a></div>

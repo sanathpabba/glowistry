@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
 import { categories, salon } from "@/lib/salon-data";
@@ -14,7 +15,7 @@ function Icon({ name }: { name: "phone" | "pin" | "calendar" | "gift" }) {
 export default function AboutPage() {
   return <main className="about-page"><SiteHeader solid />
     <section className="profile-hero"><div className="wide-shell breadcrumb"><Link href="/">Home</Link><span>/</span><b>About</b></div><div className="wide-shell profile-grid">
-      <div className="profile-art"><span>G</span><p>Image placeholder</p></div>
+      <div className="profile-art"><Image src="/images/salon/studio-interior.png" alt="Glowistry private beauty treatment studio" fill priority sizes="(max-width: 620px) 100vw, 260px"/><span>G</span></div>
       <div className="profile-summary"><p className="section-kicker">Premium home-based salon</p><h1>Amulya Makeovers<br /><em>by Glowistry</em></h1><div className="salon-meta"><a href={salon.phoneHref}><Icon name="phone"/><span>{salon.phoneDisplay}<small>Call for an appointment</small></span></a><div><Icon name="pin"/><span>{salon.address}<small>North York, Ontario</small></span></div></div><div className="profile-actions"><a className="solid-button" href={salon.bookingHref}><Icon name="calendar"/> Book now</a><a className="profile-secondary" href={`mailto:${salon.email}`}><Icon name="gift"/>Ask about bridal packages</a></div></div>
       <aside className="hours-card"><div><span className="status-dot"/>By appointment</div><h2>Hours</h2><dl><div><dt>Monday – Friday</dt><dd>Call to confirm</dd></div><div><dt>Saturday</dt><dd>By appointment</dd></div><div><dt>Sunday</dt><dd>By appointment</dd></div></dl><p>Appointments are arranged personally so each client receives unhurried, dedicated care.</p></aside>
     </div></section>

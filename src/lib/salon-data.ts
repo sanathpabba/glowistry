@@ -126,3 +126,18 @@ export const featured = [
   { category: "Hair", name: "Layers & Step Cut", price: "$25", text: "A tailored shape with soft, natural movement." },
   { category: "Nails", name: "Shellac Manicure", price: "$35", text: "Long-lasting colour with a clean, glossy finish." },
 ];
+
+export const categoryImages: Record<string, string> = {
+  threading: "/images/salon/threading.png",
+  waxing: "/images/salon/waxing.png",
+  facials: "/images/salon/facial.png",
+  hair: "/images/salon/hair-mehendi.png",
+  hydra: "/images/salon/hydra-facial.png",
+  nails: "/images/salon/nail-extensions.png",
+  "mani-pedi": "/images/salon/nails.png",
+  mehendi: "/images/salon/mehendi.png",
+  massage: "/images/salon/massage.png",
+  spa: "/images/salon/hair-spa.png",
+  prepleating: "/images/salon/saree-prepleating.png",
+  bleach: "/images/salon/bleach.png",
+};
