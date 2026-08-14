@@ -22,6 +22,8 @@ Basic public website UI completed. Supabase and admin functionality have not bee
 - Replaced generic category imagery with nine purpose-built photographs for threading, waxing, hydra facial, nail extensions, mehendi, massage, hair spa, saree pre-pleating and cosmetic bleach; mappings are centralized in `categoryImages`.
 - Removed decorative numbered-circle overlays from all service imagery.
 - Disabled legacy placeholder pseudo-elements on real service photographs to remove unintended circular shadows and bands.
+- Replaced the Plan Your Visit CSS map placeholder with a responsive, lazy-loaded Google Maps iframe and external directions link.
+- Moved About to the final position in the primary navigation menu.
 
 ## Next likely steps
 

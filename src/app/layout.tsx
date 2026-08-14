@@ -7,10 +7,11 @@ const body = Manrope({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://glowistry.ca"),
-  title: "Glowistry | Premium Home-Based Salon in North York",
-  description: "Personalized threading, waxing, facials, hair, nails, mehendi and beauty services in North York, Ontario.",
+  title: "Glowistry | Premium Home-Based Women’s Salon in North York",
+  description: "A premium home-based beauty studio for women offering personalized threading, waxing, facials, hair, nails, mehendi, and occasion services in North York, Ontario.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${display.variable} ${body.variable}`}>{children}</body></html>;
+  const themeScript = `(function(){try{var saved=localStorage.getItem('glowistry-theme');var theme=saved||(matchMedia('(prefers-color-scheme: dark)').matches?'night':'day');document.documentElement.dataset.theme=theme}catch(e){document.documentElement.dataset.theme='day'}})()`;
+  return <html lang="en" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head><body className={`${display.variable} ${body.variable}`}>{children}</body></html>;
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
 import { ServiceExplorer } from "@/components/service-explorer";
+import { ReviewSlider } from "@/components/review-slider";
 import { salon } from "@/lib/salon-data";
 
 function ArrowIcon() {
@@ -19,7 +20,7 @@ export default function Home() {
         <div className="wide-shell hero-inner">
           <div className="hero-kicker"><i />Beauty · Relaxation · Style</div>
           <h1>Feel beautiful.<br /><em>Feel like yourself.</em></h1>
-          <p>Thoughtful beauty services, a welcoming private setting and time reserved entirely for you.</p>
+          <p>A refined home-based beauty experience for women, presented in a serene private setting and reserved entirely for you.</p>
           <div className="hero-buttons"><a className="solid-button" href={salon.bookingHref}>Book an appointment <ArrowIcon /></a><Link className="light-link" href="#services">Explore services</Link></div>
         </div>
         <div className="slider-dots" aria-label="Featured slide 1 of 3"><b /><i /><i /></div>
@@ -28,29 +29,29 @@ export default function Home() {
 
       <section className="promotion wide-shell">
         <div className="promo-mark">G</div>
-        <div><p className="section-kicker">A little something special</p><h2>Make time for your glow.</h2><p>Call us for current seasonal packages, bridal services and personalized treatment recommendations.</p></div>
+        <div><p className="section-kicker">A signature experience</p><h2>Make time for your radiance.</h2><p>Enquire about seasonal offerings, bridal artistry, and personalized treatment recommendations.</p></div>
         <a className="outline-button dark" href={salon.bookingHref}>View offer <ArrowIcon /></a>
       </section>
 
       <section className="about-section wide-shell" id="about">
         <div className="about-visual image-placeholder"><Image src="/images/salon/studio-interior.png" alt="Warm ivory Glowistry treatment studio with champagne-gold details" fill sizes="(max-width: 620px) 100vw, 45vw" /><span>Glowistry</span></div>
-        <div className="about-copy"><p className="section-kicker">About Glowistry</p><h2>More than a salon.<br /><em>Your beauty sanctuary.</em></h2><p>Step into a calm, private space where beauty, comfort and personal attention come together. Every service is delivered with care, precision and a genuine understanding of what makes you feel your best.</p><ul><li><b>01</b> Personal, one-to-one appointments</li><li><b>02</b>Hygienic and considered care</li><li><b>03</b>Modern techniques, tailored results</li></ul><a className="text-action" href="#services">Discover our services <ArrowIcon /></a></div>
+        <div className="about-copy"><p className="section-kicker">About Glowistry</p><h2>More than a salon.<br /><em>A private retreat for women.</em></h2><p>Discover a serene, professionally appointed home-based beauty studio where comfort, discretion, and personal attention come together. Every service is delivered with precision and a genuine understanding of the details that help you feel beautifully confident.</p><ul><li><b>01</b>Private, one-to-one appointments</li><li><b>02</b>Impeccable hygiene and considered care</li><li><b>03</b>Modern techniques with tailored results</li></ul><a className="text-action" href="#services">Discover our services <ArrowIcon /></a></div>
       </section>
 
       <section className="service-showcase" id="services">
         <div className="wide-shell">
-          <header className="center-heading"><p className="section-kicker">Our expertise</p><h2>Services made for <em>your moment</em></h2><p>From everyday upkeep to special-occasion artistry, find the care that feels right for you.</p></header>
+          <header className="center-heading"><p className="section-kicker">Our expertise</p><h2>Beauty services for <em>every woman</em></h2><p>From refined everyday care to special-occasion artistry, discover a private experience thoughtfully tailored to you.</p></header>
           <ServiceExplorer />
         </div>
       </section>
 
       <section className="testimonial-section" id="reviews">
-        <div className="wide-shell testimonial-grid"><div><p className="section-kicker">Happy clients</p><h2>Kind words,<br /><em>beautiful results.</em></h2><div className="review-score"><b>5.0</b><span>★★★★★<small>Client experience</small></span></div></div><blockquote><div className="quote-mark">“</div><p>Every visit is designed to feel calm, personal and beautifully unhurried—from your first conversation to the finishing touch.</p><footer><span>Glowistry experience</span><div><button aria-label="Previous review">←</button><button aria-label="Next review">→</button></div></footer></blockquote></div>
+        <div className="wide-shell testimonial-grid"><div><p className="section-kicker">Happy clients</p><h2>Kind words,<br /><em>beautiful results.</em></h2><div className="review-score"><span>★★★★★<small>Amulya Makeovers on Google</small></span></div></div><ReviewSlider /></div>
       </section>
 
       <section className="contact-section wide-shell" id="contact">
-        <div className="contact-card"><p className="section-kicker">Plan your visit</p><h2>We would love<br />to see you.</h2><div className="contact-list"><div><span>Address</span><p>{salon.address}</p></div><div><span>Phone</span><a href={salon.phoneHref}>{salon.phoneDisplay}</a></div><div><span>Email</span><a href={`mailto:${salon.email}`}>{salon.email}</a></div><div><span>Hours</span><p>By appointment only<br />Call to confirm availability</p></div></div><a className="solid-button" href={salon.bookingHref}>Book your visit <ArrowIcon /></a></div>
-        <div className="map-placeholder"><div className="map-lines"/><span className="map-pin">G</span><p>North York, Ontario</p></div>
+        <div className="contact-card"><p className="section-kicker">Plan your visit</p><h2>We look forward<br />to welcoming you.</h2><div className="contact-list"><div><span>Studio address</span><p>{salon.addressLines.map((line) => <span className="address-line" key={line}>{line}</span>)}</p></div><div><span>Telephone</span><a href={salon.phoneHref}>{salon.phoneDisplay}</a></div><div><span>Email</span><a href={`mailto:${salon.email}`}>{salon.email}</a></div><div><span>Appointments</span><p>By appointment only<br />Please call to confirm availability</p></div></div><a className="solid-button" href={salon.bookingHref}>Reserve your appointment <ArrowIcon /></a></div>
+        <div className="map-embed"><iframe title="Map showing Glowistry in North York" src={`https://www.google.com/maps?q=${encodeURIComponent(salon.address)}&output=embed`} loading="lazy" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"/><a href={salon.googleMapsHref} target="_blank" rel="noreferrer">Open in Google Maps ↗</a></div>
       </section>
 
       <section className="gallery-section" id="gallery">
