@@ -12,6 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const themeScript = `(function(){try{var saved=localStorage.getItem('glowistry-theme');var theme=saved||(matchMedia('(prefers-color-scheme: dark)').matches?'night':'day');document.documentElement.dataset.theme=theme}catch(e){document.documentElement.dataset.theme='day'}})()`;
+  const themeScript = `(function(){try{var saved=localStorage.getItem('glowistry-theme');document.documentElement.dataset.theme=saved==='night'?'night':'day'}catch(e){document.documentElement.dataset.theme='day'}})()`;
   return <html lang="en" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head><body className={`${display.variable} ${body.variable}`}>{children}</body></html>;
 }
