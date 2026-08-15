@@ -20,6 +20,9 @@ export const salon = {
   bookingHref: "tel:+14168329212",
   googleMapsHref: "https://www.google.com/maps/place/Amulya+makeovers/@43.7742596,-79.3465648,17z/data=!3m1!4b1!4m6!3m5!1s0x89d4d3bb016f15d1:0x68bd263e9d5be877!8m2!3d43.7742596!4d-79.3439899!16s%2Fg%2F11xdl_rg_6",
   googleReviewHref: "https://g.page/r/CXfoW50-Jr1oEBM/review",
+  instagramHref: "https://www.instagram.com/glowistry_by_as/",
+  whatsappHref: "https://wa.me/14168329212",
+  telegramHref: "https://t.me/+14168329212",
 };
 
 export const categories: ServiceCategory[] = [
